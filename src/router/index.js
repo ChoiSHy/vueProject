@@ -1,0 +1,15 @@
+import { createRouter, createWebHistory } from 'vue-router'
+import MenuContainer from '@/components/menu/MenuContainer.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+const routes = [
+  {path:'/', name:'MenuEditor', component: MenuContainer},
+  {path:'/hello',name:'Hello',component:HelloWorld}
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+export default router
