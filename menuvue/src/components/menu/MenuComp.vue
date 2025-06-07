@@ -1,6 +1,5 @@
 <template>
     <div class="menu-comp-container">
-        <form>
             <div class="input-col">
                 <div class="input-area">
                     <label for="menu-name">
@@ -47,7 +46,7 @@
             <div class="input-col">
                 <button type="button" class="btn-delete" @click="$emit('delMenu', menu.menuId)">X</button>
             </div>
-        </form>
+            <MenuComp />
     </div>
 
 </template>
