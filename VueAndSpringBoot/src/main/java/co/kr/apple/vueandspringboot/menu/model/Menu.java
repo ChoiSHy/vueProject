@@ -16,7 +16,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@ToString(exclude = "menuList")
 public class Menu {
     @Id
     @Column("MENU_ID")
@@ -39,7 +39,7 @@ public class Menu {
     private Integer menuParentId;
     @Column("BOARD_ID")
     private Integer boardId;
-    @MappedCollection(idColumn = "MENU_ID",keyColumn = "MENU_ID")
+    @MappedCollection(idColumn = "MENU_PARENT_ID",keyColumn = "MENU_ID")
     List<Menu> menuList = new ArrayList<>();
 
 }

@@ -7,7 +7,7 @@ const menus = [
     menuUrl: "/menu/goBoard/menuId=1",
     menuAuth: 0,
     menuParentId: null,
-    menuList:[
+    children: [
       {
         menuId: 3,
         menuName: "메뉴3",
@@ -17,8 +17,9 @@ const menus = [
         menuAuth: 2,
         menuParentId: 1,
         boardId: 2,
+        children: [],
       },
-        {
+      {
         menuId: 4,
         menuName: "Google",
         menuUseYn: "Y",
@@ -27,6 +28,7 @@ const menus = [
         menuAuth: 0,
         menuParentId: 1,
         boardId: -1,
+        children: [],
       },
     ],
     boardId: 0,
@@ -40,8 +42,8 @@ const menus = [
     menuAuth: 1,
     menuParentId: null,
     boardId: 1,
+    children: [],
   },
-
 ];
 
 export default menus;

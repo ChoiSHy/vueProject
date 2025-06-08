@@ -4,6 +4,7 @@ import co.kr.apple.vueandspringboot.search.dto.BoardSearchResponseDto;
 import co.kr.apple.vueandspringboot.search.repository.BoardRepository;
 import co.kr.apple.vueandspringboot.search.repository.SearchJdbcTemplateRepository;
 import co.kr.apple.vueandspringboot.post.dto.PostSearchResultDto;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,7 @@ public class SearchService {
     private final BoardRepository boardRepository;
 
     private final Logger LOGGER = LoggerFactory.getLogger(SearchService.class);
-    public List<BoardSearchResponseDto> searchBoardInit(String keyword, int size) {
+    public List<BoardSearchResponseDto> searchBoardInit(String keyword, int size, HttpSession session) {
         LOGGER.info("keyword: {}, size: {}",keyword, size);
         Map<Integer, BoardSearchResponseDto> resultMap = new HashMap<>();
         List<PostSearchResultDto> flatList = searchJdbcTemplateRepository.getSearchResultInit(keyword, size);
@@ -49,7 +50,7 @@ public class SearchService {
         return resultMap.values().stream().toList();
     }
 
-    public BoardSearchResponseDto searchBoardPaging( int boardId, String keyword, int page, int size) {
+    public BoardSearchResponseDto searchBoardPaging( int boardId, String keyword, int page, int size, HttpSession session) {
         LOGGER.info("boardId: {}, keyword: {}, page: {}, size: {}", boardId,keyword,page,size);
         BoardSearchResponseDto board = searchJdbcTemplateRepository.searchByBoardId(boardId, keyword, page, size);
         board.getPostList().forEach(System.out::println);

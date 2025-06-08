@@ -2,6 +2,7 @@ package co.kr.apple.vueandspringboot.search.controller;
 
 import co.kr.apple.vueandspringboot.search.dto.BoardSearchResponseDto;
 import co.kr.apple.vueandspringboot.search.service.SearchService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +18,10 @@ public class SearchController {
     @GetMapping(value = "/init/{target}")
     public ResponseEntity<?> getSearchResultInit(@RequestParam("keyword") String keyword,
                                                  @RequestParam(value = "size", defaultValue = "3")int size,
-                                                 @PathVariable("target") String target){
+                                                 @PathVariable("target") String target,
+                                                 HttpSession session){
         try {
-            List<BoardSearchResponseDto> boardList = searchService.searchBoardInit(keyword,size);
+            List<BoardSearchResponseDto> boardList = searchService.searchBoardInit(keyword,size,session);
             return ResponseEntity.ok().body(boardList);
         }catch (Exception e){
             e.printStackTrace();
@@ -31,9 +33,10 @@ public class SearchController {
                                                    @RequestParam(value="size", defaultValue = "3")int size,
                                                    @RequestParam(value="page", defaultValue = "1")int page,
                                                    @PathVariable("target")String target,
-                                                   @PathVariable("boardId")int boardId){
+                                                   @PathVariable("boardId")int boardId,
+                                                   HttpSession session){
         try {
-            BoardSearchResponseDto board = searchService.searchBoardPaging(boardId, keyword, page, size);
+            BoardSearchResponseDto board = searchService.searchBoardPaging(boardId, keyword, page, size,session);
             return ResponseEntity.ok().body(board);
         }catch (Exception e){
             e.printStackTrace();

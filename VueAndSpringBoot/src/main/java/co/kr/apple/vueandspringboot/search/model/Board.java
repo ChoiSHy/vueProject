@@ -1,5 +1,6 @@
 package co.kr.apple.vueandspringboot.search.model;
 
+import co.kr.apple.vueandspringboot.menu.model.Menu;
 import co.kr.apple.vueandspringboot.post.model.Post;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,4 +36,7 @@ public class Board {
     private LocalDateTime boardUpdateDt;
     @MappedCollection(idColumn = "BOARD_ID", keyColumn = "BOARD_ID")
     List<Post> postList = new ArrayList<>();
+
+    @MappedCollection(idColumn = "BOARD_ID", keyColumn = "BOARD_ID")
+    List<Menu> menuList = new ArrayList<>();
 }
