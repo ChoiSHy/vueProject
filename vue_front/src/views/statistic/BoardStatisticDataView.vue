@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <table>
-
-        </table>
-    </div>
+  <div>
+    <table />
+  </div>
 </template>
 <script setup>
 

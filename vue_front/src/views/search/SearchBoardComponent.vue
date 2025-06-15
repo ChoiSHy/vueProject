@@ -1,11 +1,21 @@
 <template>
-    <div class="data-container" v-for="(board, idx) in boardList" :key="board.boardId">
-        <h4>{{ board.boardName }}</h4>
-        <SearchPostListLayout :postList="board.postList" />
-        <div class="btn-container">
-            <button v-for="n in board.totalCount" :key="n" @click="getPage(n, idx, board.boardId)">{{ n }}</button>
-        </div>
+  <div
+    v-for="(board, idx) in boardList"
+    :key="board.boardId"
+    class="data-container"
+  >
+    <h4>{{ board.boardName }}</h4>
+    <SearchPostListLayout :post-list="board.postList" />
+    <div class="btn-container">
+      <button
+        v-for="n in board.totalCount"
+        :key="n"
+        @click="getPage(n, idx, board.boardId)"
+      >
+        {{ n }}
+      </button>
     </div>
+  </div>
 </template>
 <script setup>
 import { useSearchStore } from '@/stores/search/SearchStore'

@@ -1,9 +1,8 @@
 package co.kr.apple.vueandspringboot.common.config;
 
-import co.kr.apple.vueandspringboot.search.model.LogSearch;
-import co.kr.apple.vueandspringboot.search.repository.SearchJdbcTemplateRepository;
+import co.kr.apple.vueandspringboot.ch05.search.model.LogSearch;
+import co.kr.apple.vueandspringboot.ch05.search.repository.SearchJdbcTemplateRepository;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;

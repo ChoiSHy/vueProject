@@ -1,10 +1,20 @@
 <template>
-    <div class="select-wrapper">
-        <select name="date" :value="modelValue" @change="$emit('update:modelValue',$event.target.value)">
-            <option :value="date" v-for="date in dates" :key="date">{{ date }}</option>
-        </select>
-        <label>일</label>
-    </div>
+  <div class="select-wrapper">
+    <select
+      name="date"
+      :value="modelValue"
+      @change="$emit('update:modelValue',$event.target.value)"
+    >
+      <option
+        v-for="date in dates"
+        :key="date"
+        :value="date"
+      >
+        {{ date }}
+      </option>
+    </select>
+    <label>일</label>
+  </div>
 </template>
 <script setup>
 import { computed } from 'vue'

@@ -1,11 +1,11 @@
 package co.kr.apple.vueandspringboot.common.interceptor;
 
-import co.kr.apple.vueandspringboot.menu.model.Menu;
-import co.kr.apple.vueandspringboot.menu.repository.MenuRepository;
-import co.kr.apple.vueandspringboot.post.model.Post;
-import co.kr.apple.vueandspringboot.post.repository.PostRepository;
-import co.kr.apple.vueandspringboot.search.model.Board;
-import co.kr.apple.vueandspringboot.search.repository.BoardRepository;
+import co.kr.apple.vueandspringboot.ch05.menu.model.Menu;
+import co.kr.apple.vueandspringboot.ch05.menu.repository.MenuRepository;
+import co.kr.apple.vueandspringboot.ch05.post.model.Post;
+import co.kr.apple.vueandspringboot.ch05.post.repository.PostRepository;
+import co.kr.apple.vueandspringboot.ch05.search.model.Board;
+import co.kr.apple.vueandspringboot.ch05.search.repository.BoardRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import java.util.Comparator;
 import java.util.Optional;
 
 @Component

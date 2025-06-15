@@ -1,23 +1,51 @@
 <template>
-    <h1>메뉴 관리</h1>
-    <div>
-        <button type="button" @click="add()">메뉴 추가</button>
-    </div>
-    <div>
-        <draggable v-model="menus_temp" item-key="menuId" animation="200">
-            <template #item="{ element }">
-                <MenuComp :menu="element" :boards="boards" :key="element.menuId"  />
-                <!-- @nameChange="nameChange($event)"
+  <h1>메뉴 관리</h1>
+  <div>
+    <button
+      type="button"
+      @click="add()"
+    >
+      메뉴 추가
+    </button>
+  </div>
+  <div>
+    <draggable
+      v-model="menus_temp"
+      item-key="menuId"
+      animation="200"
+    >
+      <template #item="{ element }">
+        <MenuComp
+          :key="element.menuId"
+          :menu="element"
+          :boards="boards"
+        />
+        <!-- @nameChange="nameChange($event)"
                     @urlChange="urlChange($event)" @authChange="authChange($event)" @boardChange="boardChange($event)"
                     @useYnChange="useYnChange($event)" @delMenu="delMenu($event)" -->
-            </template>
-        </draggable>
-    </div>
-    <div>
-        <button type="button" @click="save()">저장</button>
-        <button type="button" @click="reset()">초기화</button>
-        <button type="button" @click="back()">취소</button>
-    </div>
+      </template>
+    </draggable>
+  </div>
+  <div>
+    <button
+      type="button"
+      @click="save()"
+    >
+      저장
+    </button>
+    <button
+      type="button"
+      @click="reset()"
+    >
+      초기화
+    </button>
+    <button
+      type="button"
+      @click="back()"
+    >
+      취소
+    </button>
+  </div>
 </template>
 <script>
 import { ref } from 'vue';
@@ -31,6 +59,10 @@ import { useMenuStore } from '@/stores/menu/MenuStore.js';
 
 export default {
     name: "MenuConatiner",
+    components: {
+        MenuComp: MenuComp,
+        draggable,
+    },
     
     data: () => {
         return {
@@ -42,10 +74,6 @@ export default {
     created() {
         const menuStore = useMenuStore()
         this.menus_temp = ref([...menuStore.menus]);
-    },
-    components: {
-        MenuComp: MenuComp,
-        draggable,
     },
     methods: {
         nameChange([name, id]) {

@@ -1,19 +1,32 @@
 <template>
-    <div>
-        <h1>게시판 편집</h1>
-        <button @click="add()">게시판 추가</button>
-        <div v-for="(board) in boards_temp" :key="board.boardId">
-            <BoardComponent :board="board" 
-            @nameChange="changeName($event)" 
-            @typeChange="changeType($event)"
-                @delBoard="delBoard($event)" />
-        </div>
-        <div>
-            <button @click="save()">저장</button>
-            <button @click="reset()">초기화</button>
-            <button @click="back()">취소</button>
-        </div>
+  <div>
+    <h1>게시판 편집</h1>
+    <button @click="add()">
+      게시판 추가
+    </button>
+    <div
+      v-for="(board) in boards_temp"
+      :key="board.boardId"
+    >
+      <BoardComponent
+        :board="board" 
+        @name-change="changeName($event)" 
+        @type-change="changeType($event)"
+        @del-board="delBoard($event)"
+      />
     </div>
+    <div>
+      <button @click="save()">
+        저장
+      </button>
+      <button @click="reset()">
+        초기화
+      </button>
+      <button @click="back()">
+        취소
+      </button>
+    </div>
+  </div>
 </template>
 <script>
 import BoardComponent from '@/components/board/BoardComponent.vue';
@@ -21,6 +34,9 @@ import { useBoardStore } from '@/stores/board/BoardStore';
 
 export default {
     name: "BoardEditor",
+    components: {
+        BoardComponent: BoardComponent,
+    },
     data: () => {
         return {
             boards_temp: [],
@@ -30,9 +46,6 @@ export default {
     created(){
         const boardStore = useBoardStore();
         this.boards_temp = [...boardStore.boards]
-    },
-    components: {
-        BoardComponent: BoardComponent,
     },
     methods: {
         add() {

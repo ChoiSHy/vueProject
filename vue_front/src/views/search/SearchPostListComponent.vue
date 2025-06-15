@@ -1,8 +1,13 @@
 <template>
-    <td><a v-html="props.post.postTitle" href="#" @click="postDetail(props.post.postId)"></a></td>
-    <td>{{ props.post.userName }}</td>
-    <td>{{ props.post.postRegistDt }}</td>
-
+  <td>
+    <a
+      href="#"
+      @click="postDetail(props.post.postId)"
+      v-html="props.post.postTitle"
+    />
+  </td>
+  <td>{{ props.post.userName }}</td>
+  <td>{{ props.post.postRegistDt }}</td>
 </template>
 <script setup>
 import router from '@/router'

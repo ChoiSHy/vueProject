@@ -1,10 +1,20 @@
 <template>
-    <div class='select-wrapper'>
-        <select name="year" :value="modelValue" @change="$emit('update:modelValue', Number($event.target.value))">
-            <option :value="year" v-for="(year, idx) in years" :key="idx">{{ year }}</option>
-        </select>
-        <label>년</label>
-    </div>
+  <div class="select-wrapper">
+    <select
+      name="year"
+      :value="modelValue"
+      @change="$emit('update:modelValue', Number($event.target.value))"
+    >
+      <option
+        v-for="(year, idx) in years"
+        :key="idx"
+        :value="year"
+      >
+        {{ year }}
+      </option>
+    </select>
+    <label>년</label>
+  </div>
 </template>
 
 <script setup>
